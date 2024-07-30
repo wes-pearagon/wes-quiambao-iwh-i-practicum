@@ -7,8 +7,15 @@ html
     body    
         h1 Games
         a(href='/update-cobj') Add to this table
-        .cards 
-            each game in data
-                .card 
-                    h2 #{game.properties.game_name}  #{game.properties.genre}
-                    p #{game.properties.main_character}
+        table.table
+            thead
+                tr
+                    th Name
+                    th Genre
+                    th Main Character
+            tbody
+                each game in data
+                    tr
+                        td #{game.properties.game_name}
+                        td #{game.properties.genre}
+                        td #{game.properties.main_character}
