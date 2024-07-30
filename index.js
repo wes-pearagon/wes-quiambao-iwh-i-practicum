@@ -40,20 +40,22 @@ app.get("/update-cobj", async (req, res) => {
 app.post("/update-cobj", async (req, res) => {
   const update = {
     properties: {
-      favorite_book: req.body.newVal,
+      game_name: "test game name 2",
+      main_character: "test main char 2",
+      genre: "Fighting",
     },
   };
 
-  const email = req.query.email;
-  const updateContact = `https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`;
+  //   const email = req.query.email;
+  const addGameEndpoint = `https://api.hubapi.com/crm/v3/objects/games`;
   const headers = {
-    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+    Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
     "Content-Type": "application/json",
   };
 
   try {
-    await axios.patch(updateContact, update, { headers });
-    res.redirect("back");
+    await axios.post(addGameEndpoint, update, { headers });
+    res.redirect("/");
   } catch (err) {
     console.error(err);
   }
