@@ -14,7 +14,7 @@ To read the full directions, please go to the [practicum instructions](https://a
 - The subject of the custom object is up to you. Feel free to get creative!
 - Please create a test account and include your private app access token in your repo.
 - Ensure you re-merge any working branches into the main branch.
-- DO NOT ADD YOUR PRIVATE APP TOKEN TO YOUR REPOSITORY.
+- DO NOT ADD YOUR PRIVATE APP TOKEN TO YOUR REPOSITORY..
 
 ## Pre-requisites:
 
