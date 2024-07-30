@@ -41,7 +41,7 @@ app.get("/update-cobj", async (req, res) => {
   try {
     const response = await axios.get(endpointGenres, { headers });
     const genres = response.data.options;
-    res.render("updates", { genres });
+    res.render("updates", { title: "Update Custom Object Form | Integrating With HubSpot I Practicum", genres });
   } catch (error) {
     console.error(error);
   }

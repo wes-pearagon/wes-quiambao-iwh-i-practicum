@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
     head
-        title Add Game
+        title=`${title}`
         link(rel="stylesheet", href="/css/style.css")
     body
         .form-wrapper
@@ -14,3 +14,4 @@ html(lang="en")
                     each genre in genres
                         option(value=genre.value)= genre.label
                 input(type="submit" value="Confirm")
+        a(href="/") Return to homepage
