@@ -10,4 +10,7 @@ html(lang="en")
                 input(type="text" name="gameName" required)
                 label(for="mainChar") Main Character
                 input(type="text" name="mainChar" required)
+                select(name="genre")
+                    each genre in genres
+                        option(value=genre.genre)= genre.genre
                 input(type="submit" value="Confirm")

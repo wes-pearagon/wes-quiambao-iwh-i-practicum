@@ -32,7 +32,8 @@ app.get("/", async (req, res) => {
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 app.get("/update-cobj", async (req, res) => {
-  res.render("updates");
+  const genres = [{ genre: "RPG" }, { genre: "Roguelike" }, { genre: "Fighting" }];
+  res.render("updates", { genres });
 });
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
@@ -40,13 +41,12 @@ app.get("/update-cobj", async (req, res) => {
 app.post("/update-cobj", async (req, res) => {
   const update = {
     properties: {
-      game_name: "test game name 2",
-      main_character: "test main char 2",
-      genre: "Fighting",
+      game_name: req.body.gameName,
+      main_character: req.body.mainChar,
+      genre: req.body.genre,
     },
   };
 
-  //   const email = req.query.email;
   const addGameEndpoint = `https://api.hubapi.com/crm/v3/objects/games`;
   const headers = {
     Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
