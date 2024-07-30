@@ -12,5 +12,5 @@ html(lang="en")
                 input(type="text" name="mainChar" required)
                 select(name="genre")
                     each genre in genres
-                        option(value=genre.genre)= genre.genre
+                        option(value=genre.value)= genre.label
                 input(type="submit" value="Confirm")

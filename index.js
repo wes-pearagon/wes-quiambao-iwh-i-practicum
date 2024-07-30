@@ -32,8 +32,19 @@ app.get("/", async (req, res) => {
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 app.get("/update-cobj", async (req, res) => {
-  const genres = [{ genre: "RPG" }, { genre: "Roguelike" }, { genre: "Fighting" }];
-  res.render("updates", { genres });
+  const endpointGenres = "https://api.hubapi.com/crm/v3/properties/games/genre?properties=options";
+  const headers = {
+    Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const response = await axios.get(endpointGenres, { headers });
+    const genres = response.data.options;
+    res.render("updates", { genres });
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
